@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Chicken fried rice</title>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body id= "mainbg">
+    <ul class="a">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="saved-recipe.html">Saved</a></li>
+        <li style= "float:right"><a href="contact.html">Contact</a></li>
+        <li style= "float:right"><a href="signin.html">Sign In</a></li>
+    </ul>
+    <div id="chickenfriedrice">
+   <h1 id = "logo" v-bind:title="title">{{title}}</h1>
+    <br>
+    <h1 v-bind:title="title2">{{title2}}</h1>
+    <a id= "back" href="index.html">back</a>
+    <a id ="save" href="saved-recipe.html">save</a>
+    <br><div id="used">
+  <button-counter id="press"></button-counter>
+</div>
+    <div id = "recipeimg"><img src="friedrice.jpg" alt="Chicken Fried Rice" width="75%"></div>
+    <br>
+    <br>
+    <br>    
+           <div id="ingredient">
+    <h3 id="textt" v-bind:title4="title4">{{title4}}</h3>
+ 
+    <ol>
+     <ingredients class="b" v-for="value in ingredient" v-bind:ingredient="value.text"></ingredients>
+        </ol></div>
+    <br>
+    <br> 
+    <div id="stepp">
+    <h3 id="textt" v-bind:title5="title5">{{title5}}</h3>    </div>
+
+    <steps id="step" v-for="value in step" v-bind:step="value.text"></steps>
+
+<h2 v-bind:title3="title3">{{title3}}</h2>
+    <br><div id="multimsg">
+<textarea id ="comment" v-model="message" placeholder="Enter comment here.."></textarea>
+<p style="white-space: pre-line;">Your comment: <br>{{ message }}</p>
+    </div>
+    <div id="post">
+  <button id = "btn" v-on:click="show = !show">
+    Post
+  </button>
+  <transition name="fade">
+    <p v-if="show">Sign in to post comment.</p>
+  </transition>
+</div>
+</div>    
+<script>
+    
+  Vue.component('ingredients', {
+     props:["ingredient"],
+      template:"<li>{{ingredient}}</li>",
+      
+  })
+    
+    Vue.component('steps', {
+     props:["step"],
+      template:"<p>{{step}}</p>",
+      
+  })
+    
+     Vue.component('button-counter', {
+  data: function () {
+    return {
+      count: 0
+    }
+  },
+  template: '<button v-on:click="count++">You have used this recipe {{ count }} times.</button>'
+})
+    
+    new Vue({ el: '#chickenfriedrice',
+        data:{
+            title: "EASY RECIPE",
+            title2:"Chicken Fried Rice",
+            title3:"Comment",
+            title4:"Ingredients",
+            title5:"Steps",
+            show: true,
+            message:"",
+            ingredient:[
+                {text:"Brown rice. White rice will work great here too"},
+                {text:"Small pieces dice chicken breast about 1/2 – 3/4-inch"},
+                {text:"Toasted sesame oil"},
+                {text:"olive oil"},
+                {text:"Vegetable oil (or canola oil)"},
+                {text:"Frozen peas and carrots blend"},
+                {text:"Green onions"},
+                {text:"Garlic"},
+                {text:"Eggs"},
+                {text:"Low-sodium soy sauce"},
+            ],
+            step:[
+                {text:"In a large non-stick wok or skillet, heat 1 1/2 tsp sesame oil and 1 1/2 tsp of the canola oil over medium-high heat."},
+                {text:"Add chicken pieces, season lightly with salt and pepper and saute until cooked through, about 5 – 6 minutes."},
+                {text:"Transfer chicken to a plate or a piece of foil and set aside."},
+                {text:"Return skillet to medium-high heat, add remaining 1 1/2 tsp sesame oil and 1 1/2 tsp canola oil."},
+                {text:"Add peas and carrots blend and green onions and saute 1 minute, then add garlic and saute 1 minute longer."},
+                {text:"Push veggies to edges of pan."},
+                 {text:"Add eggs in center and cook and scramble until just set."},
+                 {text:"Return chicken to skillet along with rice."},
+                 {text:"Add in soy sauce and season with salt and pepper to taste."},
+                 {text:"Toss everything together and serve warm with Sriracha to taste if desired."},     
+                       ],
+            
+        }     
+            })
+    
+   
+    </script>        
+</body>
+</html>

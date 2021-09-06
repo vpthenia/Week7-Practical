@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css"> 
+<title>Easy Recipe</title>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body id= "mainbg">
+<ul class="a">
+                <li><a class="activee" href="index.html">Home</a></li>
+        <li><a href="saved-recipe.html">Saved</a></li>                      
+        <li style= "float:right"><a href="contact.html">Contact</a></li>
+        <li style= "float:right"><a href="signin.html">Sign In</a></li>
+    </ul>
+<div id="heading"><h1 id = "logo" v-bind:title="title">{{title}}</h1>
+<br>
+<h1 v-bind:title2="title">{{title2}}</h1>
+<br>
+<div class="row"> 
+  <div class="column">
+    <a href="spaghetti-bolognese.html"><img src="spaghetti.jpg" alt="Spaghetti Bolognese" style="width:100%"></a>
+  </div>
+  <div class="column">
+      <a href="brownies.html"><img src="brownies.jpeg" alt="Brownies" style="width:100%"></a>  
+  </div>
+  <div class="column">
+      <a href="chicken-fried-rice.html"><img src="friedrice.jpg" alt="Chicken Fried Rice" style="width:100%"></a>
+  </div>
+</div>
+    <br>
+    <br>
+    <br>
+    <br><h1 v-bind:title="title3">{{title3}}</h1></div>
+<div id="search">
+  <p>{{ message }}</p>
+  <input id= "searchh" v-model="message" placeholder="Search.."> 
+</div>  
+<br>
+<br>
+<div id="myBtnContainer"> 
+  <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+  <button class="btn" onclick="filterSelection('japanese')"> Japanese</button>
+  <button class="btn" onclick="filterSelection('american')"> American</button>
+  <button class="btn" onclick="filterSelection('chinese')"> Chinese</button>
+  <button class="btn" onclick="filterSelection('italian')"> Italian</button>
+</div>
+
+
+<div class="container">
+  <div class="filterDiv japanese">Champon</div>
+  <div class="filterDiv japanese">Gyoza</div>
+  <div class="filterDiv japanese">Gyudon</div>
+  <div class="filterDiv american">Tater tots</div>
+  <div class="filterDiv american">Hamburger</div>
+  <div class="filterDiv chinese">Chicken fried rice</div>
+  <div class="filterDiv chinese">Sesame chicken</div>
+  <div class="filterDiv american">Brownies</div>
+  <div class="filterDiv chinese">Wonton soup</div>
+  <div class="filterDiv italian">Spaghetti bolognese</div>
+  <div class="filterDiv italian">Lasagna</div>
+</div>
+    
+<script>
+    
+ new Vue({ el: '#heading',
+        data:{
+            title: "EASY RECIPE",
+            title2: "Most viewed",
+            title3: "Find recipe",
+        }    
+            
+            })
+ 
+new Vue({
+  el: '#search', 
+  data: {
+    message:""
+  }
+})
+
+filterSelection("all") 
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("filterDiv");
+  if (c == "all") c = "";
+  
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
+    }
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script> 
+</body>
+</html>

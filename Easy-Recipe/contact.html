@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Contact</title>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body id= "mainbg">
+<ul class="a">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="saved-recipe.html">Saved</a></li>
+        <li style= "float:right"><a class="activee" href="contact.html">Contact</a></li>
+        <li style= "float:right"><a href="signin.html">Sign In</a></li>
+    </ul> 
+ <div id="contact">
+<h1 id = "logo" v-bind:title="title">{{title}}</h1>
+<br><h1 v-bind:title="title2">{{title2}}</h1>   
+<br>
+<br>
+<h3 id="textt" v-bind:call="call">{{call}}</h3>
+<div id="square"></div>
+<p id="textt" v-bind:phoneno="phoneno">{{phoneno}}</p>
+<h3 id="textt" v-bind:email="email">{{email}}</h3>
+<div id="square1"></div>
+<p id="textt" v-bind:eaddress="eaddress">{{eaddress}}</p>
+<h3 id="textt" v-bind:office="office">{{office}}</h3>
+<div id="square2"></div>
+<p id="textt" v-bind:address="address" v-bind:address2="address2">{{address}}<br>{{address2}}</p>
+</div>
+    
+    <script>
+        
+    new Vue({ el: '#contact',
+        data:{
+            title: "EASY RECIPE",
+            title2: "Contact us",
+            call: "Call",
+            phoneno: "(123)0000777",
+            email: "Email",
+            eaddress: "easyrecipe@sample.com",
+            office: "Office",
+            address: "10 Sample Street, Melbourne, Australia.",
+            address2: "(Office hours: 08:00am - 5:00pm)",
+            
+        }    
+            
+            })
+        
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Spaghetti bolognese</title>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body id= "mainbg">
+ <ul class="a">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="saved-recipe.html">Saved</a></li>
+        <li style= "float:right"><a href="contact.html">Contact</a></li>
+        <li style= "float:right"><a href="signin.html">Sign In</a></li>
+    </ul> 
+    <div id="spaghettibolognese">
+   <h1 id = "logo" v-bind:title="title">{{title}}</h1>
+    <br>
+    <h1 v-bind:title="title2">{{title2}}</h1>
+    <a id= "back" href="index.html">back</a>
+    <a id ="save" href="saved-recipe.html">save</a>
+    <br><div id="used">
+  <button-counter id="press"></button-counter>
+</div>
+    <div id = "recipeimg"><img src="spaghetti.jpg" alt="Spaghetti Bolognese" width="75%"></div>
+    <br>
+    <br>
+    <br>    
+           <div id="ingredient">
+    <h3 id="textt" v-bind:title4="title4">{{title4}}</h3>
+ 
+    <ol>
+     <ingredients class="b" v-for="value in ingredient" v-bind:ingredient="value.text"></ingredients>
+        </ol></div>
+    <br>
+    <br> 
+    <div id="stepp">
+    <h3 id="textt" v-bind:title5="title5">{{title5}}</h3></div>
+
+        <steps id= "step" v-for="value in step" v-bind:step="value.text"></steps>
+
+<h2 v-bind:title3="title3">{{title3}}</h2>
+    <br><div id="multimsg">
+<textarea id ="comment" v-model="message" placeholder="Enter comment here.."></textarea>
+<p style="white-space: pre-line;">Your comment: <br>{{ message }}</p>
+    </div>
+    <div id="post">
+  <button id = "btn" v-on:click="show = !show">
+    Post
+  </button>
+  <transition name="fade">
+    <p v-if="show">Sign in to post comment.</p>
+  </transition>
+</div>
+</div>    
+<script>
+    
+  Vue.component('ingredients', {
+     props:["ingredient"],
+      template:"<li>{{ingredient}}</li>",
+      
+  })
+    
+    Vue.component('steps', {
+     props:["step"],
+      template:"<p>{{step}}<p>",
+      
+  })
+    
+     Vue.component('button-counter', {
+  data: function () {
+    return {
+      count: 0
+    }
+  },
+  template: '<button v-on:click="count++">You have used this recipe {{ count }} times.</button>'
+})
+    
+    new Vue({ el: '#spaghettibolognese',
+        data:{
+            title: "EASY RECIPE",
+            title2:"Spaghetti Bolognese",
+            title3:"Comment",
+            title4:"Ingredients",
+            title5:"Steps",
+            message:"",
+            show: true,
+            ingredient:[
+                {text:"2 cloves of garlic"},
+                {text:"1 onion"},
+                {text:"2 sprigs of fresh rosemary"},
+                {text:"6 rashers dry-cured higher-welfare smoked streaky bacon"},
+                {text:"olive oil"},
+                {text:"500 g minced beef"},
+                {text:"200 ml red wine"},
+                {text:"1 x 280 g jar of sun-dried tomatoes"},
+                {text:"2 x 400 g tins of plum tomatoes"},
+                {text:"500 g dried spaghetti"},
+                {text:"Parmesan cheese"},
+                {text:"extra virgin olive oil"},
+            ],
+            step:[
+                {text:"Preheat the oven to 180ºC/350ºF/gas 4."},
+                {text:"Peel and finely chop the garlic and onions, pick and finely chop the rosemary, then finely slice the bacon."},
+                {text:"Heat a splash of oil in a casserole pan on a medium heat, add the bacon, rosemary, garlic and onion and cook for 5 minutes, or until softened, stirring occasionally."},
+                {text:"Add the minced beef, breaking it apart with the back of a spoon, then cook for 2 to 3 minutes, or until starting to brown, then pour in the wine. Leave to bubble and cook away."},
+                {text:"Meanwhile, drain and tip the sun-dried tomatoes into a food processor, blitz to a paste, then add to the pan with the tomatoes. Stir well, break the plum tomatoes apart a little."},
+                 {text:"Cover with a lid then place in the oven for 1 hour, removing the lid and giving it a stir after 30 minutes – if it looks a little dry at this stage, add a splash of water to help it along."},
+                 {text:"About 10 minutes before the time is up, cook the spaghetti in boiling salted water according to the packet instructions."},
+                 {text:"Once the spaghetti is cooked, drain, reserving a mugful of cooking water, then return to the pan with a few spoons of Bolognese, a good grating of Parmesan and a drizzle of extra virgin olive oil."},
+                 {text:"Toss to coat the spaghetti, loosening with a splash of cooking water, if needed."},  
+                {text:"Divide the spaghetti between plates or bowls, add a good spoonful of Bolognese to each, then serve with a fine grating of Parmesan."},   
+                       ],
+            
+        }     
+            })
+    
+
+    </script>         
+</body>
+</html>

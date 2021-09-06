@@ -1,0 +1,354 @@
+* {
+    box-sizing: border-box;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+#post{
+    margin-top: 200px;
+    color: red;
+    margin-left: 20px;
+    padding-bottom: 10px;
+}
+#press{
+    background-color: blanchedalmond;
+    border: 2px solid tan;
+    color: black;
+    padding: 6px 9px;
+    border-radius: 6px;
+}
+#btn{
+    background-color:burlywood;
+  border: 2px solid tan;
+    padding: 6px 9px;
+    color: white;
+}
+#multimsg {
+    float:left;
+    margin-left: 20px;
+}
+
+#logo {
+  color: tan;
+  font-size: 25pt;
+  font-family: sans-serif;
+  text-shadow: 1px 2px black;
+}
+#save{
+  background-color:burlywood;
+  border: 2px solid tan;
+  color: white;
+  padding: 6px 9px;
+  text-decoration: none;
+  margin-right: 20px;
+  float: right;
+}
+
+#comment{
+    width: 250px;
+    height: 60px;
+    max-width: 300px;
+    max-height: 85px;
+    box-sizing: border-box;
+  border: 2px solid burlywood;
+  -webkit-transition: 0.75s;
+  transition: 0.75s;
+  outline: none;
+}
+
+#used{
+  margin-right: -125px;
+  margin-top: 30px;
+  float: right; 
+}
+
+#saveempty{
+  margin-top: 40px;
+  float: center;
+  text-align: center;
+}
+
+#mainbg{
+  height: auto;
+  width: auto;
+  background-color:floralwhite;
+  margin: 0;
+}
+
+#square{
+  height: 3px;
+  width: 30%;
+  margin-left: 15px;
+  background-color: burlywood;
+}
+
+footer{
+  text-align: center;
+  bottom: 0;
+  left:0;
+  padding: 2px;
+  background-color: burlywood;
+  color: white;
+}
+#square1{
+  height: 3px;
+  width: 35%;
+  margin-left: 15px;
+  background-color: burlywood;
+}
+
+#square2{
+  height: 3px;
+  width: 40%;
+  margin-left: 15px;
+  background-color: burlywood;
+}
+
+#back{
+  background-color:burlywood;
+  border: 2px solid tan;
+  color: white;
+  padding: 6px 9px;
+  text-decoration: none;
+  float: right;
+  margin-right: 20px;
+}
+
+#textt{
+   margin-left: 15px; 
+}
+form{
+    margin-left: 15px;
+}
+
+#ingredient{
+  position: relative;
+  background-color:antiquewhite;
+  width:100%;
+  max-width:300px;
+  height:auto;
+  border-radius: 20px;
+  float: left;
+  margin-top: 600px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 2px solid tan;
+  text-align: left;
+}
+
+#stepp{
+  position: relative;
+  background-color:blanchedalmond;
+  width:35%;
+  height: 50px;
+  border-radius: 8px;
+  margin-left: 20px;
+  margin-top: 1250px;
+  margin-right: 20px;
+  border: 2px solid tan;
+}
+
+h1{
+    font-family: "Times New Roman", Times, serif;
+    color: saddlebrown;
+    text-align: center;
+}
+
+h2{
+    font-family: "Times New Roman", Times, serif;
+    color: saddlebrown;
+    text-align: left;
+    margin-top: 300px;
+    margin-left: 20px;
+    padding-top: 10px;
+}
+
+h3{
+    font-family: "Times New Roman", Times, serif;
+    color: saddlebrown;
+}
+
+#recipeimg {
+  position: absolute;
+  margin-top: 90px;
+  margin-left: 20px;
+}
+
+ul.a{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color:blanchedalmond;
+  top: 0;
+  overflow: auto;
+  border: 2px solid tan;
+}
+
+ul.b{
+  list-style-type: circle;
+}
+
+
+li{
+    float: left;
+}
+
+li.b{
+    margin-bottom: 12px;
+    margin-left: 15px;
+    padding-right: 78px;
+    padding-top: 10px;
+    padding-left: 2px;
+}
+
+#step{
+    margin-bottom: 30px;
+    margin-left: 30px;
+    margin-right: 20px;
+    padding-top: 10px;
+    padding-left: 2px;
+}
+
+
+li a{
+  display: block;
+  color: black;
+  padding: 14px 16px;
+  text-decoration: none; 
+}
+
+li a.activee{
+  background-color: burlywood;
+  color: white; 
+}
+
+#search{
+  width: 60%;
+  margin-top: 50px;
+  margin-left: 15px;
+}
+
+.row {
+  display: flex;
+}
+
+/* Create three equal columns that sits next to each other */
+.column {
+  flex: 33.33%;
+  padding: 6px;
+}
+
+img {
+  box-shadow: 0px 2px 6px black;
+}   
+
+
+input[type=text] {
+  width: 50%;
+  padding: 5px 8px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid burlywood;
+  -webkit-transition: 0.75s;
+  transition: 0.75s;
+  outline: none;
+}
+
+#searchh {
+  width: 70%;
+  padding: 5px 8px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid burlywood;
+  -webkit-transition: 0.75s;
+  transition: 0.75s;
+  outline: none;
+}
+
+input[type=text]:focus {
+  border: 2px solid black;
+}
+
+input[type=email] {
+  width: 80%;
+  padding: 5px 8px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid burlywood;
+  -webkit-transition: 0.75s;
+  transition: 0.75s;
+  outline: none;
+}
+
+input[type=email]:focus {
+  border: 2px solid black;
+}
+
+input[type=password] {
+  width: 50%;
+  padding: 5px 8px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid burlywood;
+  -webkit-transition: 0.75s;
+  transition: 0.75s;
+  outline: none;
+}
+
+input[type=password]:focus {
+  border: 2px solid black;
+}
+
+input[type=submit]{
+  background-color:burlywood;
+  border: 2px solid tan;
+  color: white;
+  padding: 6px 9px;
+  text-decoration: none;
+  float: right;
+  margin-right: 15px;
+}
+
+.container {
+  overflow: hidden;
+}
+
+.filterDiv {
+  float: left;
+  background-color: bisque;
+  color: black;
+  border: 2px solid tan;
+  width: 100%;
+  max-width:150px;
+  line-height: 150px;
+  text-align: center;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  display: none;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  margin-left: 15px;
+  margin-bottom: 10px;
+  outline: none;
+  padding: 12px 16px;
+  background-color: blanchedalmond;
+  border: 2px solid tan;
+  cursor: pointer;
+}
+
+/* Add a dark background to the active button */
+.btn.active {
+  background-color: burlywood;
+  color: white;
+}

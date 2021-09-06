@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Brownies</title>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body id= "mainbg">
+    <ul class="a">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="saved-recipe.html">Saved</a></li>
+        <li style= "float:right"><a href="contact.html">Contact</a></li>
+        <li style= "float:right"><a href="signin.html">Sign In</a></li>
+    </ul>
+    <div id="brownies">
+   <h1 id = "logo" v-bind:title="title">{{title}}</h1>
+    <br>
+    <h1 v-bind:title="title2">{{title2}}</h1>
+    <a id= "back" href="index.html">back</a>
+    <a id ="save" href="saved-recipe.html">save</a>
+    <br><div id="used">
+  <button-counter id="press"></button-counter>
+</div>
+    <div id = "recipeimg"><img src="brownies.jpeg" alt="Brownies" width="75%"></div>
+    <br>
+    <br>
+    <br>    
+           <div id="ingredient">
+    <h3 id="textt" v-bind:title4="title4">{{title4}}</h3>
+ 
+    <ol>
+     <ingredients class="b" v-for="value in ingredient" v-bind:ingredient="value.text"></ingredients>
+        </ol></div>
+    <br>
+    <br> 
+    <div id="stepp">
+    <h3 id="textt" v-bind:title5="title5">{{title5}}</h3>   </div>
+    <steps id ="step" v-for="value in step" v-bind:step="value.text"></steps>
+        
+<h2 v-bind:title3="title3">{{title3}}</h2>
+    <br>
+        <div id="multimsg">
+<textarea id ="comment" v-model="message" placeholder="Enter comment here.."></textarea>
+<p style="white-space: pre-line;">Your comment: <br>{{ message }}</p></div>
+
+<div id="post">
+  <button id = "btn" v-on:click="show = !show">
+    Post
+  </button>
+  <transition name="fade">
+    <p v-if="show">Sign in to post comment.</p>
+  </transition>
+</div>
+</div>    
+<script>
+    
+  Vue.component('ingredients', {
+     props:["ingredient"],
+      template:"<li>{{ingredient}}</li>",
+      
+  })
+    
+    Vue.component('steps', {
+     props:["step"],
+      template:"<p>{{step}}</p>",
+      
+  })
+    
+     Vue.component('button-counter', {
+  data: function () {
+    return {
+      count: 0
+    }
+  },
+  template: '<button v-on:click="count++">You have used this recipe {{ count }} times.</button>'
+})
+    
+    new Vue({ el: '#brownies',
+        data:{
+            title: "EASY RECIPE",
+            title2:"Brownies",
+            title3:"Comment",
+            title4:"Ingredients",
+            title5:"Steps",
+            show: true,
+            message:"",
+            ingredient:[
+                {text:"1/2 cup butter"},
+                {text:"1 cup white sugar"},
+                {text:"2 eggs"},
+                {text:"1 teaspoon vanilla extract"},
+                {text:"1/2 cup unsweetened cocoa powder"},
+                {text:"1/2 cup all-purpose flour"},
+                {text:"1/4 teaspoon salt"},
+                {text:"1/4 teaspoon baking powder"},
+            ],
+            step:[
+                {text:"Preheat oven to 350 degrees F (175 degrees C). Grease and flour an 8-inch square pan."},
+                {text:"In a large saucepan, melt 1/2 cup butter. Remove from heat, and stir in sugar, eggs, and 1 teaspoon vanilla. Beat in 1/3 cup cocoa, 1/2 cup flour, salt, and baking powder. Spread batter into prepared pan."},
+                {text:"Bake in preheated oven for 25 to 30 minutes. Do not overcook."},
+                {text:"To Make Frosting: Combine 3 tablespoons softened butter, 3 tablespoons cocoa, honey, 1 teaspoon vanilla extract, and 1 cup confectioners' sugar. Stir until smooth. Frost brownies while they are still warm."},   
+                       ],
+            
+        }     
+            })
+  
+    
+    </script>     
+</body>
+</html>
