@@ -1,0 +1,85 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Task 2</title>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<demo-component 
+	v-bind:title="title"
+	v-bind:likes= "100"
+	v-bind:commentids = "commentids"
+	v-bind:author="author"
+></demo-component>
+
+<demo-component 
+	v-bind:title="post.title"
+	v-bind:likes= "post.likes"
+	v-bind:commentids = "post.commentids"
+	v-bind:author="post.author"
+	v-on:say-hi = "sayHi"
+></demo-component>
+
+<component-an-example></component-an-example>
+
+</div>
+
+
+<script>
+Vue.component("demo-component",{
+	props:{
+		title:String,
+		likes:Number,
+		commentids: Array,
+		author:Object,
+		
+	},
+	template:'<div><p><demoComponent></demoComponent></p> \
+		<h3>{{title}} and likes {{likes}} by {{author.name}}</h3> \
+		<h6></h6> <button v-on:click="$emit(\'say-hi\')">Say Hi</button>\
+		</div>',
+})
+
+Vue.component("demoComponent",{
+	template:"<p>this is a message</p>",
+})
+
+var componentA = {
+	template: "<p>another paragraph</p>",
+}
+
+var app = new Vue({
+	el: "#app",
+	data: {
+		title:'Week 7',
+		likes: 100,
+		commentids:[10,11,12],
+		author: {
+			name: 'Victoria Thenia',
+		},
+		post: {
+			title:'Week 7',
+			likes: 100,
+			commentids:[10,11,12],
+			author: {
+				name: 'Victoria Thenia',
+			},
+		},
+	},
+	components: {
+		"component-an-example": componentA,
+	}, 
+	methods: {
+		sayHi: function() {
+			alert("hi");
+		},
+	
+	},
+})
+
+</script>
+
+
+</body>
+</html>
